@@ -34,10 +34,16 @@ Constraints:
 '''
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+        #create a map to check if the target-num is already in the list
         prevMap= {}
+        #use enumerate when index and number, enumerate does not need len(num) just num
         for i,n in enumerate(nums):
+            #get the second number we need
             diff = target - n
+            #if difference is in previous map get the indexex
             if diff in prevMap:
+                #one index is the diff found right now --> i and next will be the index of pair found in prevMap
                 return [prevMap[diff], i]
+            #did a mistake here the last time, remember we want the number to have index
             prevMap[n]=i
 
