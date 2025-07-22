@@ -53,5 +53,24 @@ countS.get(s[i], 0) # Try to get the count for s[i]; return 0 if s[i] is not fou
 1 + countS.get(...) # Add 1 to the current count (or to 0 if the character is new)
 countS[s[i]] = ...  # Store the updated count for that character back in the dictionary
 '''
+#Solution 2
 
+class Solution(object):
+    def isAnagram(self, s, t):
+        if len(s)!= len(t):
+            return False
+        countS,countT= {}, {}
+        for i,n in enumerate(s):
+            countS[n]= 1 + countS.get(n, 0)
+        for i,n in enumerate(t):
+            countT[n]= 1 + countT.get(n, 0)
+            
+        return countS==countT
+        
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        
         
